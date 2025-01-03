@@ -1,21 +1,17 @@
 package com.sgeorgiev24.productbrowser.presentation.screen.home
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen() {
-    Column {
-        Text(text = "Hello, World!")
+    val viewModel: HomeViewModel = koinViewModel()
+    val state: HomeState by viewModel.state.collectAsState()
 
-        Button(
-            onClick = {
-                // Handle button click
-            }
-        ) {
-            Text(text = "Click me!")
-        }
-    }
+    HomeContent(
+        state = state,
+        action = { viewModel.submitAction(it) }
+    )
 }

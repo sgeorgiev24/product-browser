@@ -4,6 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.sgeorgiev24.productbrowser.presentation.navigation.NavigationAction
 import com.sgeorgiev24.productbrowser.presentation.screen.details.DetailsScreen
+import com.sgeorgiev24.productbrowser.presentation.screen.favorites.FavoritesScreen
 import com.sgeorgiev24.productbrowser.presentation.screen.home.HomeScreen
 
 sealed class MainDests : NavigationAction {
@@ -16,6 +17,11 @@ sealed class MainDests : NavigationAction {
         override val route: String
             get() = "details"
     }
+
+    data object Favorites : MainDests() {
+        override val route: String
+            get() = "favorites"
+    }
 }
 
 fun NavGraphBuilder.mainDestsComposables() {
@@ -25,5 +31,9 @@ fun NavGraphBuilder.mainDestsComposables() {
 
     composable(MainDests.Details.route) {
         DetailsScreen()
+    }
+
+    composable(MainDests.Favorites.route) {
+        FavoritesScreen()
     }
 }
