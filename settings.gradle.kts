@@ -21,4 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Product Browser"
 include(":app")
- 
+include(":presentation")
+include(":provider:network")
+include(":domain:model")
+include(":domain:repository")
+include("domain:interactor")
