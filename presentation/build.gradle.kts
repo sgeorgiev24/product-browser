@@ -22,6 +22,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain:interactor"))
+    implementation(project(":domain:model"))
+
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
 

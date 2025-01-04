@@ -44,6 +44,7 @@ dependencies {
     implementation(project(":presentation"))
     implementation(project(":provider:network"))
     implementation(project(":domain:repository"))
+    implementation(project(":domain:interactor"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -15,5 +15,5 @@ val presentationModule =
 
         single { NavigationDispatcher(get()) }
 
-        viewModel { HomeViewModel(get()) }
+        viewModel { HomeViewModel(get(), get()) }
     }
