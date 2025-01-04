@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 data class ProductResponse(
     val id: Int,
     val title: String,
-    val description: String
+    val description: String,
+    val thumbnail: String
 )

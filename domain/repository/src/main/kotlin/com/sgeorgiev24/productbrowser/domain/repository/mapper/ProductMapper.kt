@@ -9,7 +9,8 @@ fun ProductResponse.toDomain() =
     Product(
         id = id,
         title = title,
-        description = description
+        description = description,
+        thumbnail = thumbnail
     )
 
 fun ProductsSearchResponse.toDomain() =
