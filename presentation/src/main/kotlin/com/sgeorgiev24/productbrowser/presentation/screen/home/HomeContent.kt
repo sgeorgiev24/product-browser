@@ -67,10 +67,10 @@ fun HomeContent(
                 ProductItem(
                     id = product.id,
                     thumbnailUrl = product.thumbnail,
-                    isInFavorites = false,
+                    isInFavorites = product.isInFavorites,
                     title = product.title,
                     description = product.description,
-                    onFavoriteClick = {}
+                    onFavoriteClick = { action(HomeAction.ToggleFavorite(product)) }
                 )
 
                 if (index < (state.products?.lastIndex ?: 0)) {

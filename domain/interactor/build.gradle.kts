@@ -19,6 +19,7 @@ android {
 
 dependencies {
     implementation(project(":domain:repository"))
+    implementation(project(":domain:model"))
 
     implementation(libs.koin.android)
 }

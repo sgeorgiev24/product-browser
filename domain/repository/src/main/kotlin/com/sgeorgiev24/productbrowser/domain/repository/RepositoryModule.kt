@@ -5,5 +5,5 @@ import com.sgeorgiev24.productbrowser.domain.repository.product.ProductRepositor
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<ProductRepository> { ProductRepositoryImpl(get()) }
+    single<ProductRepository> { ProductRepositoryImpl(get(), get()) }
 }

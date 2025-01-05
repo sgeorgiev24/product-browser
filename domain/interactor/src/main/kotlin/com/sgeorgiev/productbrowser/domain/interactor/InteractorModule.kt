@@ -1,8 +1,11 @@
 package com.sgeorgiev.productbrowser.domain.interactor
 
-import com.sgeorgiev.productbrowser.domain.interactor.product.SearchProducts
+import com.sgeorgiev.productbrowser.domain.interactor.favorite.ToggleFavoriteUseCase
+import com.sgeorgiev.productbrowser.domain.interactor.product.SearchProductsUseCase
 import org.koin.dsl.module
 
 val interactorModule = module {
-    single { SearchProducts(get()) }
+    single { SearchProductsUseCase(get()) }
+
+    single { ToggleFavoriteUseCase(get()) }
 }
