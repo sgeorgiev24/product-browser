@@ -9,6 +9,9 @@ android {
     namespace = "com.sgeorgiev.productbrowser.presentation"
     compileSdk = 35
 
+    defaultConfig {
+        minSdk = 24
+    }
     buildFeatures {
         compose = true
         dataBinding = true

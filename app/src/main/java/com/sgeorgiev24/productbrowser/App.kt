@@ -1,11 +1,7 @@
 package com.sgeorgiev24.productbrowser
 
 import android.app.Application
-import com.sgeorgiev.productbrowser.domain.interactor.interactorModule
-import com.sgeorgiev24.productbrowser.domain.repository.repositoryModule
 import com.sgeorgiev24.productbrowser.presentation.presentationModule
-import com.sgeorgiev24.productbrowser.provider.database.databaseModule
-import com.sgeorgiev24.productbrowser.provider.network.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
@@ -20,7 +16,7 @@ class App : Application() {
         }
 
         startKoin {
-            modules(presentationModule + networkModule + repositoryModule + interactorModule + databaseModule)
+            modules(presentationModule)
             androidLogger()
             androidContext(this@App)
         }
