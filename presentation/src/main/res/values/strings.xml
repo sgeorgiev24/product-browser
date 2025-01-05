@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home/Search screen -->
+    <string name="home_title">Search</string>
+    <string name="search_field_label">Search products…</string>
+
+    <!-- Favorites screen -->
+    <string name="favorites_back">Search</string>
+    <string name="favorites_title">Favorites</string>
+
+    <!-- Details screen -->
+    <string name="details_title">Details</string>
+</resources>
