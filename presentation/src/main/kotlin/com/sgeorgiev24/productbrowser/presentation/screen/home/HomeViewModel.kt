@@ -17,7 +17,7 @@ class HomeViewModel(
     private val navigationDispatcher: NavigationDispatcher,
     private val searchProductsUseCase: SearchProductsUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase
-) : BaseViewModel<HomeState, HomeAction, Unit>(HomeState()) {
+) : BaseViewModel<HomeState, HomeAction>(HomeState()) {
 
     private val onProductSearch: (String) -> Unit = debounce(
         coroutineScope = viewModelScope

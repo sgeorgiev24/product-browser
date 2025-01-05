@@ -15,7 +15,7 @@ class DetailsViewModel(
     private val savedStateHandle: SavedStateHandle,
     private val navigationDispatcher: NavigationDispatcher,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase
-) : BaseViewModel<DetailsState, Unit, Unit>(DetailsState()) {
+) : BaseViewModel<DetailsState, Unit>(DetailsState()) {
     init {
         val productId = savedStateHandle.get<String>(PRODUCT_ID_ARG)?.toIntOrNull()
 

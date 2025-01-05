@@ -16,7 +16,7 @@ class FavoritesViewModel(
     private val navigationDispatcher: NavigationDispatcher,
     private val getAllFavoritesUseCase: GetAllFavoritesUseCase,
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase
-) : BaseViewModel<FavoritesState, FavoritesAction, Unit>(FavoritesState()) {
+) : BaseViewModel<FavoritesState, FavoritesAction>(FavoritesState()) {
 
     override suspend fun handleActions(action: FavoritesAction) {
         when (action) {

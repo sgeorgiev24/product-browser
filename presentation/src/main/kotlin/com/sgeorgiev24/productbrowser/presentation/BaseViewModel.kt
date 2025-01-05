@@ -2,16 +2,14 @@ package com.sgeorgiev24.productbrowser.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel<ScreenState : Any, Action, Event>(
+abstract class BaseViewModel<ScreenState : Any, Action>(
     initialState: ScreenState
 ) : ViewModel() {
 
@@ -24,9 +22,6 @@ abstract class BaseViewModel<ScreenState : Any, Action, Event>(
     )
 
     private val actions = MutableSharedFlow<Action>()
-
-    private val _events = Channel<Event>(Channel.BUFFERED)
-    val events = _events.receiveAsFlow()
 
     init {
         collectActions()
@@ -42,9 +37,5 @@ abstract class BaseViewModel<ScreenState : Any, Action, Event>(
 
     val submitAction: (action: Action) -> Unit = {
         viewModelScope.launch { actions.emit(it) }
-    }
-
-    val submitEvent: (event: Event) -> Unit = {
-        viewModelScope.launch { _events.send(it) }
     }
 }
