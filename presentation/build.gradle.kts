@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.compose)
 }
 

@@ -43,6 +43,7 @@ android {
 dependencies {
     implementation(project(":presentation"))
     implementation(project(":provider:network"))
+    implementation(project(":provider:database"))
     implementation(project(":domain:repository"))
     implementation(project(":domain:interactor"))
 

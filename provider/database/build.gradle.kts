@@ -1,12 +1,12 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.seriazliation)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.sgeorgiev.productbrowser.provider.network"
+    namespace = "com.sgeorgiev.productbrowser.provider.database"
     compileSdk = 35
 
     compileOptions {
@@ -28,4 +28,7 @@ dependencies {
     implementation(libs.ktor.serialization)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.content.negotiation)
+
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 }

@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -19,7 +19,11 @@ android {
 
 dependencies {
     implementation(project(":provider:network"))
+    implementation(project(":provider:database"))
     implementation(project(":domain:model"))
 
     implementation(libs.koin.android)
+
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 }
