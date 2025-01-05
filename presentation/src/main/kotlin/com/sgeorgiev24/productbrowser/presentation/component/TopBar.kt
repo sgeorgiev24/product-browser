@@ -13,18 +13,17 @@ import androidx.compose.ui.text.style.TextAlign
 fun TopBar(
     modifier: Modifier = Modifier,
     title: String,
-    leading: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null
 ) {
     Box(
-        modifier = modifier
-            .fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier.align(Alignment.CenterStart)
         ) {
-            leading?.invoke()
+            leadingIcon?.invoke()
         }
 
         Text(
