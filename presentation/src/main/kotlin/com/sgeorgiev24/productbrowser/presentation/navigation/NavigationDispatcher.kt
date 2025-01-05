@@ -21,4 +21,8 @@ class NavigationDispatcher(
     ) {
         navigationManager.navigate(NavigationCommand.PopToDestination(navAction.route, inclusive))
     }
+
+    suspend fun navigateWithArgs(navAction: NavigationAction, vararg arg: NavigationArg) {
+        navigationManager.navigate(NavigationCommand.NavigateWithArguments(navAction, arg.toList()))
+    }
 }

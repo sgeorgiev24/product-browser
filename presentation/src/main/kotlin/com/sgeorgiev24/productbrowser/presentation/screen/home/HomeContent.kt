@@ -58,7 +58,8 @@ fun HomeContent(
 
         ProductList(
             products = state.products,
-            onFavoriteClick = { action(HomeAction.ToggleFavorite(it)) }
+            onFavoriteClick = { action(HomeAction.ToggleFavorite(it)) },
+            onItemClick = { action(HomeAction.OpenProductDetails(it.id)) }
         )
     }
 }

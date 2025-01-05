@@ -5,8 +5,10 @@ import com.sgeorgiev.productbrowser.domain.interactor.favorite.GetAllFavoritesUs
 import com.sgeorgiev.productbrowser.domain.interactor.favorite.ToggleFavoriteUseCase
 import com.sgeorgiev24.productbrowser.domain.model.product.Product
 import com.sgeorgiev24.productbrowser.presentation.BaseViewModel
+import com.sgeorgiev24.productbrowser.presentation.navigation.NavigationArg
 import com.sgeorgiev24.productbrowser.presentation.navigation.NavigationDispatcher
 import com.sgeorgiev24.productbrowser.presentation.navigation.destination.MainDests
+import com.sgeorgiev24.productbrowser.presentation.navigation.destination.MainDests.Details.PRODUCT_ID_ARG
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -31,7 +33,13 @@ class FavoritesViewModel(
                 navigationDispatcher.navigateBack()
 
             is FavoritesAction.OpenProductDetails ->
-                navigationDispatcher.navigateTo(MainDests.Details)
+                navigationDispatcher.navigateWithArgs(
+                    MainDests.Details,
+                    NavigationArg.IntArg(
+                        key = PRODUCT_ID_ARG,
+                        value = action.productId
+                    )
+                )
         }
     }
 

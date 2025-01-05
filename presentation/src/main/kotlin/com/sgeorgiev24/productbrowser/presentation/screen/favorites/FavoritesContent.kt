@@ -65,7 +65,7 @@ fun FavoritesContent(
         ProductList(
             products = state.products,
             onFavoriteClick = { action(FavoritesAction.ToggleFavorite(it)) },
-            onItemClick = { action(FavoritesAction.OpenProductDetails(it)) }
+            onItemClick = { action(FavoritesAction.OpenProductDetails(it.id)) }
         )
     }
 }

@@ -8,5 +8,10 @@ sealed class NavigationCommand {
         val inclusive: Boolean
     ) : NavigationCommand()
 
+    data class NavigateWithArguments(
+        val navAction: NavigationAction,
+        val args: List<NavigationArg>
+    ) : NavigationCommand()
+
     object Back : NavigationCommand()
 }

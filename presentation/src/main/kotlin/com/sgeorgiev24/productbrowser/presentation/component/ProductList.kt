@@ -17,17 +17,14 @@ import com.sgeorgiev24.productbrowser.domain.model.product.Product
 fun ProductList(
     products: List<Product>?,
     onFavoriteClick: (Product) -> Unit,
-    onItemClick: ((Product) -> Unit)? = null
+    onItemClick: (Product) -> Unit
 ) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = 8.dp)
     ) {
         itemsIndexed(products ?: emptyList()) { index, product ->
             ProductItem(
-                modifier = Modifier
-                    .takeIf { onItemClick != null }
-                    ?.clickable { onItemClick?.invoke(product) }
-                    ?: Modifier,
+                modifier = Modifier.clickable { onItemClick(product) },
                 id = product.id,
                 thumbnailUrl = product.thumbnail,
                 isInFavorites = product.isInFavorites,

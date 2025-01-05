@@ -5,8 +5,10 @@ import com.sgeorgiev.productbrowser.domain.interactor.favorite.ToggleFavoriteUse
 import com.sgeorgiev.productbrowser.domain.interactor.product.SearchProductsUseCase
 import com.sgeorgiev24.productbrowser.domain.model.product.Product
 import com.sgeorgiev24.productbrowser.presentation.BaseViewModel
+import com.sgeorgiev24.productbrowser.presentation.navigation.NavigationArg
 import com.sgeorgiev24.productbrowser.presentation.navigation.NavigationDispatcher
 import com.sgeorgiev24.productbrowser.presentation.navigation.destination.MainDests
+import com.sgeorgiev24.productbrowser.presentation.navigation.destination.MainDests.Details.PRODUCT_ID_ARG
 import com.sgeorgiev24.productbrowser.presentation.util.debounce
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -43,6 +45,15 @@ class HomeViewModel(
 
             is HomeAction.ToggleFavorite ->
                 toggleFavorite(action.product)
+
+            is HomeAction.OpenProductDetails ->
+                navigationDispatcher.navigateWithArgs(
+                    MainDests.Details,
+                    NavigationArg.IntArg(
+                        key = PRODUCT_ID_ARG,
+                        value = action.productId
+                    )
+                )
         }
     }
 

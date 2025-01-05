@@ -6,4 +6,5 @@ sealed class HomeAction {
     data object OnFavoritesClick : HomeAction()
     data class OnSearchQueryChange(val query: String) : HomeAction()
     data class ToggleFavorite(val product: Product) : HomeAction()
+    data class OpenProductDetails(val productId: Int) : HomeAction()
 }
