@@ -18,12 +18,6 @@ class FavoritesViewModel(
     private val toggleFavoriteUseCase: ToggleFavoriteUseCase
 ) : BaseViewModel<FavoritesState, FavoritesAction, Unit>(FavoritesState()) {
 
-    init {
-        viewModelScope.launch {
-            loadFavorites()
-        }
-    }
-
     override suspend fun handleActions(action: FavoritesAction) {
         when (action) {
             is FavoritesAction.ToggleFavorite ->
@@ -65,10 +59,12 @@ class FavoritesViewModel(
         }
     }
 
-    private suspend fun loadFavorites() {
-        val favorites = getAllFavoritesUseCase().getOrNull() ?: emptyList()
-        mState.update {
-            it.copy(products = favorites)
+    fun loadFavorites() {
+        viewModelScope.launch {
+            val favorites = getAllFavoritesUseCase().getOrNull() ?: emptyList()
+            mState.update {
+                it.copy(products = favorites)
+            }
         }
     }
 }
