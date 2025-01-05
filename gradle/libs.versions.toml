@@ -17,8 +17,10 @@ kotlin-serialization = "1.7.3"
 coil = "3.0.4"
 room = "2.6.1"
 ksp = "2.0.0-1.0.24"
+uiViewbinding = "1.7.6"
 
 [libraries]
+androidx-ui-viewbinding = { module = "androidx.compose.ui:ui-viewbinding", version.ref = "uiViewbinding" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }

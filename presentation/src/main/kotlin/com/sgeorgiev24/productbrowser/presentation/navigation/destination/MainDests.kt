@@ -20,7 +20,7 @@ sealed class MainDests : NavigationAction {
         const val PRODUCT_ID_ARG = "productId"
 
         override val route: String
-            get() = "details"
+            get() = "details/{$PRODUCT_ID_ARG}"
         override val arguments: List<NamedNavArgument>
             get() = listOf(navArgument(PRODUCT_ID_ARG) { type = NavType.IntType })
     }

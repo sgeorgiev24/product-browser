@@ -11,6 +11,7 @@ android {
 
     buildFeatures {
         compose = true
+        dataBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -34,6 +35,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui.viewbinding)
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network)

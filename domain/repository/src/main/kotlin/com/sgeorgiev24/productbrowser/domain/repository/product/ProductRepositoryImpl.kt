@@ -17,6 +17,11 @@ class ProductRepositoryImpl(
             productApiDataSource.searchProducts(query)
         }.map { it.toDomain() }
 
+    override suspend fun getProductById(id: Int) =
+        safeApiCall {
+            productApiDataSource.getProductById(id)
+        }.map { it.toDomain() }
+
     override suspend fun getFavorites() =
         safeDatabaseCall {
             database.productsDao().getFavoriteProducts().map { it.toDomain() }

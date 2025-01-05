@@ -1,5 +1,6 @@
 package com.sgeorgiev24.productbrowser.provider.network.product
 
+import com.sgeorgiev24.productbrowser.provider.network.product.model.ProductResponse
 import com.sgeorgiev24.productbrowser.provider.network.product.model.ProductsSearchResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -15,6 +16,14 @@ class ProductApiDataSourceImpl(
             url {
                 path("products", "search")
                 parameter("q", query)
+            }
+        }.body()
+    }
+
+    override suspend fun getProductById(id: Int): ProductResponse {
+        return client.get {
+            url {
+                path("products", id.toString())
             }
         }.body()
     }
